@@ -7,8 +7,7 @@ import time
 
 def ThingDataSensors():
     netdata = psutil.net_io_counters()
-    data = netdata.packets_sent + netdata.packets_recv
-    return data
+    return netdata.packets_sent + netdata.packets_recv
 
 def ThingDataActuators(status):
     print "Thing Data Actuators %s" % status
