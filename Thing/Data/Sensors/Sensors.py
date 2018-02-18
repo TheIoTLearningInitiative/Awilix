@@ -15,7 +15,7 @@ def SignalHandler(signal, frame):
 
 if __name__ == '__main__':
 
-    signal.signal(signal.SIGINT, functionSignalHandler)
+    signal.signal(signal.SIGINT, SignalHandler)
 
     while True:
         print "Thing Data Sensors: %s " % ThingDataSensors()
