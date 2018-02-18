@@ -1,26 +1,41 @@
-#!flask/bin/python
+#!/usr/bin/python
+
+import psutil
+import signal
+import sys
+import time
+
 from flask import Flask, jsonify
 
 app = Flask(__name__)
 
-tasks = [
-    {
-        'id': 1,
-        'title': u'Task One',
-        'description': u'This is task one', 
-        'done': False
-    },
-    {
-        'id': 2,
-        'title': u'Task Two',
-        'description': u'This is task two', 
-        'done': False
-    }
-]
+def ThingDataSensors():
+    netdata = psutil.net_io_counters()
+    return netdata.packets_sent + netdata.packets_recv
 
-@app.route('/api/v1.0/tasks', methods=['GET'])
-def tasksget():
-    return jsonify({'tasks': tasks})
+@app.route('/api/sensors', methods=['GET'])
+def ThingDataSensorsGet():
+    return str(ThingDataSensors()) + "\n"
+
+def ThingDataActuators():
+    return "Thing Data Actuators"
+
+@app.route('/api/actuators', methods=['GET'])
+def ThingDataActuatorsGet():
+    return ThingDataActuators() + "\n"
+
+def SignalHandler(signal, frame):
+    sys.exit(0)
 
 if __name__ == '__main__':
+
+    signal.signal(signal.SIGINT, SignalHandler)
+
     app.run(debug=True)
+
+    while True:
+        print "Thing Data Sensors: %s " % ThingDataSensors()
+        ThingDataActuators()
+        time.sleep(5)
+
+# End of File
