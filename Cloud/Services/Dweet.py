@@ -26,8 +26,8 @@ if __name__ == '__main__':
 
     while True:
 
-         dweepy.dweet_for('InternetOfThings101Sensors', {'Sensors': ThingDataSensors()})
-         dweepy.dweet_for('InternetOfThings101Actuators', {'Actuators': ThingDataActuators()})
+         dweepy.dweet_for('DweetThingDataSensors', {'Sensors': ThingDataSensors()})
+         dweepy.dweet_for('DweetThingDataActuators', {'Actuators': ThingDataActuators()})
          time.sleep(5)
 
 # End of File
