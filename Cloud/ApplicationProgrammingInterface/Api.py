@@ -30,12 +30,6 @@ def SignalHandler(signal, frame):
 if __name__ == '__main__':
 
     signal.signal(signal.SIGINT, SignalHandler)
-
     app.run(debug=True)
-
-    while True:
-        print "Thing Data Sensors: %s " % ThingDataSensors()
-        ThingDataActuators()
-        time.sleep(5)
 
 # End of File
