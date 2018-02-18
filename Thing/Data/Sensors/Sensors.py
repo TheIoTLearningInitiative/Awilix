@@ -10,7 +10,7 @@ def ThingDataSensors():
     data = netdata.packets_sent + netdata.packets_recv
     return data
 
-def functionSignalHandler(signal, frame):
+def SignalHandler(signal, frame):
     sys.exit(0)
 
 if __name__ == '__main__':
