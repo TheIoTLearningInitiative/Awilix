@@ -7,11 +7,10 @@ import time
 
 def ThingDataSensors():
     netdata = psutil.net_io_counters()
-    data = netdata.packets_sent + netdata.packets_recv
-    return data
+    return netdata.packets_sent + netdata.packets_recv
 
-def ThingDataActuators(status):
-    print "Thing Data Actuators %s" % status
+def ThingDataActuators():
+    print "Thing Data Actuators"
 
 def SignalHandler(signal, frame):
     sys.exit(0)
@@ -22,6 +21,7 @@ if __name__ == '__main__':
 
     while True:
         print "Thing Data Sensors: %s " % ThingDataSensors()
+        ThingDataActuators()
         time.sleep(5)
 
 # End of File
