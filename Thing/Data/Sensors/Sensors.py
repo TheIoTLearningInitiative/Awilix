@@ -18,8 +18,7 @@ if __name__ == '__main__':
     signal.signal(signal.SIGINT, functionSignalHandler)
 
     while True:
-        print "Hello Internet of Things 101"
-        print "Data Sensor: %s " % ThingDataSensors()
+        print "Thing Data Sensors: %s " % ThingDataSensors()
         time.sleep(5)
 
 # End of File
