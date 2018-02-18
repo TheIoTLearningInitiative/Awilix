@@ -9,8 +9,8 @@ def ThingDataSensors():
     netdata = psutil.net_io_counters()
     return netdata.packets_sent + netdata.packets_recv
 
-def ThingDataActuators(status):
-    print "Thing Data Actuators %s" % status
+def ThingDataActuators():
+    print "Thing Data Actuators"
 
 def SignalHandler(signal, frame):
     sys.exit(0)
